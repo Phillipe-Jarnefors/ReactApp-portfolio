@@ -6,7 +6,6 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
-  Link,
 } from "react-router-dom"
 import Home from "./pages/Home"
 import Layout from "./components/Layout"
@@ -29,7 +28,7 @@ function App() {
   return <RouterProvider router={router} />
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLDivElement).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>

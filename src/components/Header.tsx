@@ -1,4 +1,4 @@
-import React from "react"
+
 import { Link, NavLink } from "react-router-dom"
 
 export default function Header() {
@@ -15,7 +15,9 @@ export default function Header() {
         </NavLink>
       </p>
       <p>
-        <NavLink className="navlink">Upcoming</NavLink>
+        <NavLink className="navlink">
+          Upcoming
+        </NavLink>
       </p>
     </header>
   )
