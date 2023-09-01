@@ -1,24 +1,24 @@
 
 import { Link, NavLink } from "react-router-dom"
+import { Icon } from '@iconify/react';
 
 export default function Header() {
   return (
-    <header className="header-container">
+    <header className="text-xl flex justify-between">
       <Link to="/">
-        <h1 className="cs-logo">
-          CS<span className="cs-logo-core">core</span>
-        </h1>
+        <h1 className="text-primary ">Pjolio</h1>
       </Link>
-      <p>
-        <NavLink className="navlink" to="/live-tournament">
+      <Icon icon="mingcute:menu-fill" color="#61dbfb" />
+      {/* <p>
+        <NavLink className="" to="/live-tournament">
           Live
         </NavLink>
       </p>
       <p>
-        <NavLink className="navlink">
+        <NavLink className="" to={""}>
           Upcoming
         </NavLink>
-      </p>
+      </p> */}
     </header>
   )
 }

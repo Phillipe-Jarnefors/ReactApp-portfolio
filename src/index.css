@@ -1,4 +1,8 @@
-* {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -94,7 +98,7 @@ button:focus-visible {
   }
 }
 
-/* Header */
+
 
 .header-container {
   display: flex;
@@ -111,7 +115,7 @@ button:focus-visible {
   color: #00e0ff;
 }
 
-/* Live Tournaments */
+
 
 .live-event-wrapper {
   border-top: 1px solid #494949;
@@ -125,7 +129,7 @@ button:focus-visible {
 
 @media only screen and (min-width: 700px) {
   .live-container {
-    /* max-width: 50vw; */
+
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -137,7 +141,7 @@ button:focus-visible {
     min-width: 300px;
     flex: 1;
     gap: 1rem;
-    /* min-width: 20%; */
+
     max-width: 350px;
   }
 }
@@ -160,7 +164,7 @@ button:focus-visible {
 .live-event-title > p {
   color: #8fff00;
   font-size: 10px;
-  /* font-weight: 500; */
+  /* font-weight: 500; 
 }
 
 .live-event-header {
@@ -202,11 +206,10 @@ button:focus-visible {
   align-items: center;
 }
 
-/* .live-teams > h2 {
-  max-width: 70%;
-} */
 
 .live-teams > h3 {
   font-size: medium;
   font-weight: 100;
-}
+} 
+
+*/
