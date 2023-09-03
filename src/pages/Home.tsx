@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom"
 import  phillipe  from "../images/phillipe.jpg"
+import { Icon } from "@iconify/react/dist/iconify.js"
 
 export default function Home() {
   return (
@@ -24,25 +25,25 @@ export default function Home() {
           </section>
         </article>
       </div>
-       <section className="grid grid-cols-4 col-span-1 gap-2 mt-3">
-        <div className="col-span-3 bg-primary rounded-lg h-cards"></div>
-        <div className="col-span-1 bg-abstract rounded-lg"></div>
-        <div className="col-span-1 bg-abstract rounded-lg"></div>
-        <div className="col-span-3 bg-secondary rounded-lg"></div>
+       <section className="container mx-auto mb-40 grid grid-cols-4 grid-rows-layout col-span-1 gap-2 mt-3">
+        <div className="col-span-3 bg-primary rounded-lg flex justify-center items-center "><Icon icon="logos:nextjs" className="w-cards h-cards" color="#001829" /></div>
+        <div className="col-span-1 bg-abstract rounded-lg  "></div>
+        <div className="col-span-1 bg-abstract rounded-lg "></div>
+        <div className="col-span-3 bg-secondary rounded-lg flex justify-center items-center "><Icon icon="akar-icons:react-fill" className="w-cards h-cards" color="#001829" /></div>
         <div className="col-span-4 bg-abstract rounded-lg"></div>
-        <div className="col-span-3 bg-primary rounded-lg"></div>
-        <div className="col-span-1 bg-abstract rounded-lg"></div>
-        <div className="col-span-1 bg-abstract rounded-lg"></div>
-        <div className="col-span-3 bg-secondary rounded-lg"></div>
-        <div className="col-span-4 bg-abstract rounded-lg"></div>
-        <div className="col-span-3 bg-primary rounded-lg"></div>
-        <div className="col-span-1 bg-abstract rounded-lg"></div>
+        <div className="col-span-3 bg-primary rounded-lg flex justify-center items-center "><Icon icon="fa6-brands:node" className="w-cards h-cards" color="#001829"/></div>
+        <div className="col-span-1 bg-abstract rounded-lg "></div>
+        <div className="col-span-1 bg-abstract rounded-lg "></div>
+        <div className="col-span-3 bg-secondary rounded-lg flex justify-center items-center "><Icon icon="file-icons:tailwind" className="w-cards h-cards" color="#001829" /></div>
+        <div className="col-span-4  bg-abstract rounded-lg "></div>
+        <div className="col-span-3 bg-primary rounded-lg flex justify-center items-center"><Icon icon="cib:typescript" className="w-cards h-cards" color="#001829"/></div>
+        <div className="col-span-1 bg-abstract rounded-lg "></div>
        </section>
       </main>
-      <h1>Next up tournaments</h1>
+      {/* <h1>Next up tournaments</h1>
       <Link to="live-tournament">
         <h3>Watch the schedule</h3>
-      </Link>
+      </Link> */}
     </section>
   )
 }

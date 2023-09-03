@@ -11,8 +11,13 @@ export default {
         abstract: "#1B1A24",
       },
       spacing: {
-        cards: "2rem",
+        cards: "clamp(3.5rem, 3vw, 5rem)",
+        logo: "clamp(1.5rem, 3vw, 3rem)",
       },
+    },
+    gridTemplateRows: {
+      8: "repeat(8, minmax(0, 1fr))",
+      layout: "4fr, 4fr, 1fr, 4fr, 4fr, 1fr, 4fr",
     },
     fontSize: {
       button: [
