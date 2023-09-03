@@ -24,12 +24,14 @@ export default function Header() {
       <Link to="/">
         <h1 className={`text-primary transition duration-4000 ${scrolling &&  "text-secondary"}`}>Pjolio</h1>
       </Link>
-      <nav className="flex gap-4 items-center">
+      <nav className="flex gap-6 items-center">
+        <Icon className="h-8 w-8 transition hover:translate-y-[-3px] invisible md:visible" icon="bi:github" color="#61dbfb" />
+        <Icon className="h-8 w-8 transition hover:translate-y-[-3px] invisible md:visible" icon="mdi:linkedin" color="#61dbfb" />
         <Link to="/">
-          <h1 className="text-primary text-medium">about</h1>
+          <h1 className="text-primary text-medium transition hover:translate-y-[-3px] invisible md:visible">about</h1>
         </Link>
         <Link to="/">
-          <h2 className="text-primary text-medium">projects</h2>
+          <h2 className="text-primary text-medium transition hover:translate-y-[-3px] invisible md:visible">projects</h2>
         </Link>
         <div className="cursor-pointer md:hidden">
             <Icon onClick={() => setToggleMenu(!toggleMenu)} icon="mingcute:menu-fill" color="#61dbfb" />
