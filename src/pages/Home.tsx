@@ -12,7 +12,7 @@ export default function Home() {
        <div className="col-span-2 mt-7 pr-12">
         <p className="text-medium text-font">This is a showcase app, featuring the projects I've worked on during my studies</p>
         <article className="flex gap-3 mt-7">
-          <div className="w-4 bg-primary rounded mt-3">_</div>
+          <div className="p-1 bg-primary rounded mt-3"></div>
           <section>
             <div className="mt-3 rounded">
               <img className="rounded-lg" src={phillipe} alt="phillipe" />
