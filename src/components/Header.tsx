@@ -20,7 +20,7 @@ export default function Header() {
   }, [])
 
   return (
-    <header className={`text-xl flex justify-between fixed w-full px-6 py-6 z-20 top-0 left-0 transition duration-1000 ${scrolling ? "bg-abstract" : 'bg-transparent'}`}>
+    <header className={`text-xl flex justify-between fixed w-full px-6 py-6 xl:px-12 z-20 top-0 left-0 transition duration-1000 ${scrolling ? "bg-abstract" : 'bg-transparent'}`}>
       <Link to="/">
         <h1 className={`text-primary transition duration-4000 ${scrolling &&  "text-secondary"}`}>Pjolio</h1>
       </Link>
@@ -28,7 +28,7 @@ export default function Header() {
         <Icon className="h-8 w-8 transition hover:translate-y-[-3px] invisible md:visible" icon="bi:github" color="#61dbfb" />
         <Icon className="h-8 w-8 transition hover:translate-y-[-3px] invisible md:visible" icon="mdi:linkedin" color="#61dbfb" />
         <Link to="/">
-          <h1 className="text-primary text-medium transition hover:translate-y-[-3px] invisible md:visible">about</h1>
+          <h1 className="text-primary text-medium transition hover:translate-y-[-3px] invisible md:visible"><a href="#about">about</a></h1>
         </Link>
         <Link to="/">
           <h2 className="text-primary text-medium transition hover:translate-y-[-3px] invisible md:visible">projects</h2>

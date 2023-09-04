@@ -2,6 +2,22 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    screens: {
+      sm: "640px",
+      // => @media (min-width: 640px) { ... }
+
+      md: "768px",
+      // => @media (min-width: 768px) { ... }
+
+      lg: "1024px",
+      // => @media (min-width: 1024px) { ... }
+
+      xl: "1280px",
+      // => @media (min-width: 1280px) { ... }
+
+      "2xl": "1670px",
+      // => @media (min-width: 1536px) { ... }
+    },
     extend: {
       colors: {
         font: "#DADADA",
@@ -11,7 +27,7 @@ export default {
         abstract: "#1B1A24",
       },
       spacing: {
-        cards: "clamp(3.5rem, 5vw, 8rem)",
+        cards: "clamp(3.8rem, 8vw, 8rem)",
         heroSm: "13rem",
         hero: "clamp(13rem, 8vw, 22rem)",
         logo: "clamp(1.5rem, 3vw, 3rem)",
@@ -20,6 +36,15 @@ export default {
       },
       transitionDuration: {
         4000: "4000ms",
+      },
+      animation: {
+        "fade-in": "fade-in 1s ease-in-out",
+      },
+      keyframes: {
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
       },
     },
     gridTemplateRows: {
@@ -35,10 +60,18 @@ export default {
           fontWeight: "600",
         },
       ],
+      standard: [
+        "clamp(0.9rem, 3vw, 2rem)",
+        {
+          lineHeight: "clamp(1.4rem, 4.2vw, 2.4rem)",
+          letterSpacing: "0.03em",
+        },
+      ],
       medium: [
         "clamp(0.9rem, 3vw, 2rem)",
         {
           lineHeight: "clamp(1.2rem, 4.5vw, 2rem)",
+          letterSpacing: "0.03em",
         },
       ],
       xl: [
