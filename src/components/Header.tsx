@@ -20,11 +20,11 @@ export default function Header() {
   }, [])
 
   return (
-    <header className={`text-xl flex justify-between fixed w-full px-6 py-6 z-10 top-0 left-0 transition duration-1000 ${scrolling ? "bg-abstract" : 'bg-transparent'}`}>
+    <header className={`text-xl flex justify-between fixed w-full px-6 py-6 z-20 top-0 left-0 transition duration-1000 ${scrolling ? "bg-abstract" : 'bg-transparent'}`}>
       <Link to="/">
         <h1 className={`text-primary transition duration-4000 ${scrolling &&  "text-secondary"}`}>Pjolio</h1>
       </Link>
-      <nav className="flex gap-6 items-center">
+      <nav className="flex sm:gap-6 items-center">
         <Icon className="h-8 w-8 transition hover:translate-y-[-3px] invisible md:visible" icon="bi:github" color="#61dbfb" />
         <Icon className="h-8 w-8 transition hover:translate-y-[-3px] invisible md:visible" icon="mdi:linkedin" color="#61dbfb" />
         <Link to="/">

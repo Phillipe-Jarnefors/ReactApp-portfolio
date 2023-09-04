@@ -11,8 +11,12 @@ export default {
         abstract: "#1B1A24",
       },
       spacing: {
-        cards: "clamp(3.5rem, 3vw, 5rem)",
+        cards: "clamp(3.5rem, 5vw, 8rem)",
+        heroSm: "13rem",
+        hero: "clamp(13rem, 8vw, 22rem)",
         logo: "clamp(1.5rem, 3vw, 3rem)",
+        layout: "clamp(0.5rem, 7vw, 36rem)",
+        128: "28rem",
       },
       transitionDuration: {
         4000: "4000ms",
@@ -24,7 +28,7 @@ export default {
     },
     fontSize: {
       button: [
-        "clamp(1.1rem, 5vw, 3rem)",
+        "clamp(1.1rem, 4vw, 1.8rem)",
         {
           lineHeight: "2rem",
           letterSpacing: "0.03em",
@@ -34,7 +38,7 @@ export default {
       medium: [
         "clamp(0.9rem, 3vw, 2rem)",
         {
-          lineHeight: "1.2rem",
+          lineHeight: "clamp(1.2rem, 4.5vw, 2rem)",
         },
       ],
       xl: [
@@ -48,13 +52,29 @@ export default {
       "2xl": [
         "clamp(1.85rem, 5vw, 4.5rem)",
         {
-          lineHeight: "2rem",
+          lineHeight: "clamp(2rem, 5vw, 4.5rem)",
           letterSpacing: "0.03em",
           fontWeight: "bold",
         },
       ],
       "3xl": [
-        "clamp(2.3rem, 5vw, 5rem)",
+        "clamp(2.3rem, 6.2vw, 5.5rem)",
+        {
+          lineHeight: "clamp(2rem, 5vw, 4.5rem)",
+          letterSpacing: "0.03em",
+          fontWeight: "bold",
+        },
+      ],
+      firstname: [
+        "clamp(1.5rem, 7vw, 5rem)",
+        {
+          lineHeight: "2rem",
+          letterSpacing: "0.03em",
+          fontWeight: "bold",
+        },
+      ],
+      lastname: [
+        "clamp(0.9rem, 6vw, 4rem)",
         {
           lineHeight: "2rem",
           letterSpacing: "0.03em",

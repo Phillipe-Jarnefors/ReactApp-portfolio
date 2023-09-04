@@ -6,7 +6,7 @@ import Footer from "./Footer"
 export default function Layout() {
   return (
     <div className="bg-background min-h-screen flex flex-col justify-between">
-      <div className="  px-6 pt-6">
+      <div className="pt-6 px-6 md:px-10 lg:px-32 2xl:px-96">
         <Header />
         <main>
           <Outlet />

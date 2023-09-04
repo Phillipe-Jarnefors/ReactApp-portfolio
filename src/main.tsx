@@ -19,7 +19,7 @@ const router = createBrowserRouter(
         path="live-tournament"
         element={<Tournaments />}
         loader={tournamentLoader}
-      />
+      /> 
     </Route>
   )
 )
