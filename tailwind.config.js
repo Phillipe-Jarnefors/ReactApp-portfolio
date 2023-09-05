@@ -27,7 +27,8 @@ export default {
         abstract: "#1B1A24",
       },
       spacing: {
-        cards: "clamp(3.8rem, 8vw, 8rem)",
+        cards: "clamp(3rem, 8vw, 8rem)",
+        projects: "clamp(8rem, 16vw, 20rem)",
         heroSm: "13rem",
         hero: "clamp(13rem, 8vw, 22rem)",
         logo: "clamp(1.5rem, 3vw, 3rem)",
