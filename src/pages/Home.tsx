@@ -54,7 +54,7 @@ export default function Home() {
               </div>
             </div>
             <p className="text-standard text-font mt-5 sm:mt-10">I'm a dedicated student in my final year, specializing in Frontend React at YH Campus Lidköping. I'm eager to make meaningful connections and showcase my skills to prospective employers after graduation.</p>
-            <button className="text-button rounded-md hover:bg-primary hover:text-abstract text-font outline px-5 lg:px-8 py-2 lg:py-5 mt-6 mb-1 md:mt-12">Reach out &gt;</button>
+            <button className="text-button rounded-md hover:bg-primary hover:text-abstract text-font outline px-5 lg:px-8 py-2 lg:py-5 mt-6 mb-1 md:mt-12">Reach out</button>
           </section>
         </article>
        </div>
@@ -68,7 +68,7 @@ export default function Home() {
         <div className="col-span-1 bg-abstract rounded-lg "></div>
         <div className="col-span-1 bg-abstract rounded-lg "></div>
         <div className="col-span-3 bg-secondary rounded-lg flex justify-center items-center "><Icon icon="file-icons:tailwind" className="w-cards h-cards" color="#001829" /></div>
-        <div className="col-span-4  bg-abstract rounded-lg "></div>
+        <div className="col-span-4 bg-abstract rounded-lg "></div>
         <div className="col-span-3 bg-primary rounded-lg flex justify-center items-center"><Icon icon="cib:typescript" className="w-cards h-cards" color="#001829"/></div>
         <div className="col-span-1 bg-abstract rounded-lg "></div>
        </section>}
