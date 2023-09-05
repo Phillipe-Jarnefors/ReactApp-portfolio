@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import  phillipe  from "../images/phillipe.jpg"
 import { Icon } from "@iconify/react/dist/iconify.js"
 import Projects from "./Projects"
@@ -8,6 +8,13 @@ import Projects from "./Projects"
 export default function Home() {
   const [slowVisible, setSlowVisible] = useState<Boolean>(false)
   const [fastVisible, setFastVisible] = useState<boolean>(false)
+
+  // const ref = useRef()
+
+  // const scrollPage = (section) => {
+  //   // window.scrollTo({top: section.current.offsetTop})
+  //   ref.current?.scrollIntoView()
+  // }
 
   useEffect(() => {
     const delayFast = setTimeout(() => {
@@ -28,7 +35,7 @@ export default function Home() {
 
   return (
     <section className="">
-      <h2 className="text-3xl text-primary mt-20 sm:mt-28 sm:pb-4 md:mt-40">Portfolio</h2>
+      <h2 id="home" className="text-3xl text-primary mt-20 sm:mt-28 sm:pb-4 md:mt-40">Portfolio</h2>
       <div className="h-2 bg-primary rounded mt-3"></div>
       <main className="grid grid-cols-3 gap-6 sm:gap-10 md:gap-16 lg:gap-[6rem] xl:gap-0">
        <div className="col-span-2 mt-7">

@@ -1,9 +1,9 @@
-import React from 'react'
+
 import { Icon } from '@iconify/react/dist/iconify.js'
 
 export default function Projects() {
   return (
-    <div className=''>
+    <div id='projects'>
         <div className='flex justify-end'>      
             <h2 className="text-3xl text-primary mt-20 sm:mt-28 sm:pb-4 md:mt-40">Projects</h2>
         </div>

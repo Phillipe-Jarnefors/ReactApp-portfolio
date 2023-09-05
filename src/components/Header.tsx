@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Link, NavLink } from "react-router-dom"
+import { Link as LinkMe } from "react-scroll"
 import { Icon } from '@iconify/react';
 // import HamburgerMenu from "../utils/HamburgerMenu";
 export default function Header() {
@@ -21,18 +22,18 @@ export default function Header() {
 
   return (
     <header className={`text-xl flex justify-between fixed w-full px-6 py-6 xl:px-12 z-20 top-0 left-0 transition duration-1000 ${scrolling ? "bg-abstract" : 'bg-transparent'}`}>
-      <Link to="/">
-        <h1 className={`text-primary transition duration-4000 ${scrolling &&  "text-secondary"}`}>Pjolio</h1>
-      </Link>
+      <LinkMe to="home" spy={true} smooth={true} offset={-200}>
+        <h1 className={`text-primary transition duration-4000 hover:cursor-pointer ${scrolling &&  "text-secondary"}`}>Pjolio</h1>
+      </LinkMe>
       <nav className="flex sm:gap-6 items-center">
         <Icon className="h-8 w-8 transition hover:translate-y-[-3px] invisible md:visible" icon="bi:github" color="#61dbfb" />
         <Icon className="h-8 w-8 transition hover:translate-y-[-3px] invisible md:visible" icon="mdi:linkedin" color="#61dbfb" />
-        <Link to="/">
+        <LinkMe to="about" spy={true} smooth={true} offset={-25} >
           <h1 className="text-primary text-medium transition hover:translate-y-[-3px] invisible md:visible"><a href="#about">about</a></h1>
-        </Link>
-        <Link to="/">
+        </LinkMe>
+        <LinkMe to="projects" spy={true} smooth={false} offset={-25} >
           <h2 className="text-primary text-medium transition hover:translate-y-[-3px] invisible md:visible">projects</h2>
-        </Link>
+        </LinkMe>
         <div className="cursor-pointer md:hidden">
             <Icon onClick={() => setToggleMenu(!toggleMenu)} icon="mingcute:menu-fill" color="#61dbfb" />
         </div>
@@ -41,9 +42,15 @@ export default function Header() {
             <Icon className="h-8 w-8 transition hover:translate-x-[-5px]" icon="maki:cross" />
           </button>
           <ul className="flex flex-col gap-8 items-center mt-10">
-            <li className="transition hover:translate-y-[-5px]">home</li>
-            <li className="transition hover:translate-y-[-5px]">projects</li>
-            <li className="transition hover:translate-y-[-5px]">about</li>
+            <LinkMe to="home" spy={true} smooth={true} offset={-250} className="transition hover:translate-y-[-5px]">
+              home
+            </LinkMe>
+            <LinkMe to="projects" spy={true} smooth={true} offset={-250} className="transition hover:translate-y-[-5px]">
+              projects
+            </LinkMe>
+            <LinkMe to="about" spy={true} smooth={true} offset={-250} className="transition hover:translate-y-[-5px]">
+              about
+            </LinkMe>
             <Icon className="h-8 w-8 transition hover:translate-y-[-5px]" icon="bi:github" color="#61dbfb" />
             <Icon className="h-8 w-8 transition hover:translate-y-[-5px]" icon="mdi:linkedin" color="#61dbfb" />
           </ul>

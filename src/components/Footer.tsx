@@ -4,7 +4,7 @@ import { Icon } from '@iconify/react';
 export default function Footer() {
   return (
   <footer className="w-[100%]">
-    <div className=" flex justify-center" >
+    <div id="about" className=" flex justify-center" >
       <div className=" flex bottom-2 gap-2">
       </div>
       <img className="w-full h-full  object-cover" src={waves} alt="" />
