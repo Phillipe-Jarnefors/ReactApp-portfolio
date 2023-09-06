@@ -35,6 +35,11 @@ export default {
         layout: "clamp(0.5rem, 7vw, 36rem)",
         128: "28rem",
       },
+      outlineWidth: {
+        5: "5px",
+        6: "6px",
+        7: "7px",
+      },
       transitionDuration: {
         4000: "4000ms",
       },

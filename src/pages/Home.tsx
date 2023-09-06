@@ -1,9 +1,11 @@
 
 import { Link } from "react-router-dom"
+import { Link as LinkMe } from "react-scroll"
 import { useState, useEffect, useRef } from "react"
 import  phillipe  from "../images/phillipe.jpg"
 import { Icon } from "@iconify/react/dist/iconify.js"
 import Projects from "./Projects"
+import About from "./About"
 
 export default function Home() {
   const [slowVisible, setSlowVisible] = useState<Boolean>(false)
@@ -54,7 +56,9 @@ export default function Home() {
               </div>
             </div>
             <p className="text-standard text-font mt-5 sm:mt-10">I'm a dedicated student in my final year, specializing in Frontend React at YH Campus Lidköping. I'm eager to make meaningful connections and showcase my skills to prospective employers after graduation.</p>
-            <button className="text-button rounded-md hover:bg-primary hover:text-abstract text-font outline px-5 lg:px-8 py-2 lg:py-5 mt-6 mb-1 md:mt-12">Reach out</button>
+            <LinkMe to="footer" spy={true} smooth={false} offset={0} duration={0}>
+              <button className="text-button rounded-md hover:bg-primary hover:text-abstract text-font outline px-5 lg:px-8 py-2 lg:py-5 mt-6 mb-1 md:mt-12">Reach out</button>
+            </LinkMe>
           </section>
         </article>
        </div>
@@ -74,6 +78,7 @@ export default function Home() {
        </section>}
       </main>
       <Projects/>
+      <About />
       {/* <h1>Next up tournaments</h1>
       <Link to="live-tournament">
         <h3>Watch the schedule</h3>
