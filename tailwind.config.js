@@ -28,6 +28,7 @@ export default {
       },
       spacing: {
         cards: "clamp(3rem, 8vw, 8rem)",
+        smallBtn: "clamp(2.5rem, 7vw, 9rem)",
         projects: "clamp(8rem, 16vw, 20rem)",
         heroSm: "13rem",
         hero: "clamp(13rem, 8vw, 22rem)",

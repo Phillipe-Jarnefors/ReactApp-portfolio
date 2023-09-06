@@ -3,7 +3,7 @@ import Milo from "../images/milo.jpg"
 
 export default function About() {
   return (
-    <div id='about' className='mb-40'>   
+    <div id='about' className='mb-32'>   
         <h2 className="text-3xl text-primary mt-20 sm:mt-28 sm:pb-4 md:mt-40">About</h2>
         <div className="h-2 bg-primary rounded mt-3 mb-8 sm:mb-12"></div>
         <section className='grid grid-cols-3 items-center'>
