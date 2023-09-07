@@ -26,13 +26,17 @@ export default function Header() {
         <h1 className={`text-primary transition duration-4000 hover:cursor-pointer ${scrolling && "text-secondary"}`}>Pjolio</h1>
       </LinkMe>
       <nav className="flex sm:gap-6 items-center">
-        <Icon className="h-8 w-8 transition hover:translate-y-[-3px] invisible md:visible" icon="bi:github" color="#61dbfb" />
-        <Icon className="h-8 w-8 transition hover:translate-y-[-3px] invisible md:visible" icon="mdi:linkedin" color="#61dbfb" />
+        <a href="https://github.com/Phillipe-Jarnefors" target="_blank">
+          <Icon className="h-8 w-8 transition hover:translate-y-[-3px] hidden md:block" icon="bi:github" color="#61dbfb" />
+        </a>
+        <a href="https://www.linkedin.com/in/phillipejarnefors" target="_blank">
+          <Icon className="h-8 w-8 transition hover:translate-y-[-3px] hidden md:block" icon="mdi:linkedin" color="#61dbfb" />
+        </a>
         <LinkMe to="about" spy={true} smooth={true} offset={-100} duration={0}>
-          <h1 className="text-primary text-medium transition hover:translate-y-[-3px] invisible md:visible"><a href="#about">about</a></h1>
+          <h1 className="text-primary text-medium transition hover:translate-y-[-3px] hidden md:block"><a href="#about">about</a></h1>
         </LinkMe>
         <LinkMe to="projects" spy={true} smooth={false} offset={50} duration={0}>
-          <h2 className="text-primary text-medium transition hover:translate-y-[-3px] invisible md:visible">projects</h2>
+          <h2 className="text-primary text-medium transition hover:translate-y-[-3px] hidden md:block">projects</h2>
         </LinkMe>
         <div className="cursor-pointer md:hidden">
             <Icon onClick={() => setToggleMenu(!toggleMenu)} icon="mingcute:menu-fill" color="#61dbfb" />
@@ -51,8 +55,12 @@ export default function Header() {
             <LinkMe onClick={() => setToggleMenu(!toggleMenu)} to="about" spy={true} smooth={true} offset={-100} duration={0} className="transition hover:translate-y-[-5px]">
               about
             </LinkMe>
-            <Icon className="h-8 w-8 transition hover:translate-y-[-5px]" icon="bi:github" color="#61dbfb" />
-            <Icon className="h-8 w-8 transition hover:translate-y-[-5px]" icon="mdi:linkedin" color="#61dbfb" />
+            <a href="https://github.com/Phillipe-Jarnefors" target="_blank">
+              <Icon className="h-8 w-8 transition hover:translate-y-[-5px]" icon="bi:github" color="#61dbfb" />
+            </a>
+            <a href="https://www.linkedin.com/in/phillipejarnefors" target="_blank">
+              <Icon className="h-8 w-8 transition hover:translate-y-[-5px]" icon="mdi:linkedin" color="#61dbfb" />
+            </a>
           </ul>
         </section>
       </nav>
