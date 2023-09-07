@@ -10,6 +10,7 @@ import {
 import Home from "./pages/Home"
 import Layout from "./components/Layout"
 import Tournaments, { loader as tournamentLoader } from "./pages/Tournaments"
+import QuizProject from "./projects/quiz/QuizProject"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,10 @@ const router = createBrowserRouter(
         element={<Tournaments />}
         loader={tournamentLoader}
       /> 
+      <Route 
+        path="quiz"
+        element={<QuizProject />}  
+      />
     </Route>
   )
 )
