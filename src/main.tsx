@@ -10,7 +10,7 @@ import {
 import Home from "./pages/Home"
 import Layout from "./components/Layout"
 import Tournaments, { loader as tournamentLoader } from "./pages/Tournaments"
-import QuizProject from "./projects/quiz/QuizProject"
+import NotFound from "./pages/NotFound"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,7 +23,11 @@ const router = createBrowserRouter(
       /> 
       <Route 
         path="quiz"
-        element={<QuizProject />}  
+        element={<Tournaments/>}  
+      />
+      <Route 
+        path="*" 
+        element={<NotFound />}
       />
     </Route>
   )

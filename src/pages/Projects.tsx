@@ -21,7 +21,9 @@ export default function Projects() {
                 <Icon className='h-projects w-projects mt-3' icon="simple-icons:counterstrike" color="#61dbfb" />
                 <h2 className='text-3xl text-primary font-semibold mb-2 lg:mb-6'>E-Sports</h2>
                 <p className='text-medium text-font'>React, TypeScript, AJAX & Tailwind</p>
-                <button className="2xl:animate-bounce text-button rounded-md hover:bg-primary hover:text-abstract text-font outline px-5 lg:px-8 py-2 lg:py-5 mt-6 mb-6 md:mt-12">Try it!</button>
+                <Link to="live-tournament">
+                    <button className="2xl:animate-bounce text-button rounded-md hover:bg-primary hover:text-abstract text-font outline px-5 lg:px-8 py-2 lg:py-5 mt-6 mb-6 md:mt-12">Try it!</button>
+                </Link>
             </div>
         </section>
     </div>

@@ -23,7 +23,9 @@ export default function Header() {
   return (
     <header className={`text-xl flex justify-between fixed w-full px-6 py-6 xl:px-12 z-20 top-0 left-0 transition duration-1000 ${scrolling ? "bg-abstract" : 'bg-transparent'}`}>
       <LinkMe to="home" spy={true} smooth={true} offset={-200} duration={0}>
-        <h1 className={`text-primary transition duration-4000 hover:cursor-pointer ${scrolling && "text-secondary"}`}>Pjolio</h1>
+        <Link to="/">
+            <h1 className={`text-primary transition duration-4000 hover:cursor-pointer ${scrolling && "text-secondary"}`}>Pjolio</h1>
+        </Link>
       </LinkMe>
       <nav className="flex sm:gap-6 items-center">
         <a href="https://github.com/Phillipe-Jarnefors" target="_blank">
@@ -47,7 +49,9 @@ export default function Header() {
           </button>
           <ul className="flex flex-col gap-8 items-center mt-10">
             <LinkMe onClick={() => setToggleMenu(!toggleMenu)} to="home" spy={true} smooth={true} offset={-250} duration={0} className="transition hover:translate-y-[-5px]">
-              home
+              <Link to="/">
+                home
+              </Link>
             </LinkMe>
             <LinkMe onClick={() => setToggleMenu(!toggleMenu)} to="projects" spy={true} smooth={true} offset={-10} duration={0} className="transition hover:translate-y-[-5px]">
               projects
