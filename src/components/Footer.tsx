@@ -7,12 +7,13 @@ export default function Footer() {
   <footer id="footer" className="relative mt-20 w-[100%]">
     <div className=" outline outline-5 outline-font rounded-lg absolute right-0 left-0 bottom-24 sm:bottom-40 md:bottom-60 lg:bottom-80 mt-6 mx-6 sm:mx-20 md:mx-30 lg:mx-60 xl:mx-96">
       <form className="grid grid-cols-5 gap-3 px-3 sm:p-8 md:p-12 pb-8 pt-3 text-font">
+        <h5 className="col-span-4 text-xl">Reach out to me!</h5>
+        <Icon className="col-span-1 h-full w-full rotate-6 " icon="icon-park-outline:stamp" color="#ababab" />
         <div className="col-span-3 flex items-end">
-           <input className=" bg-background w-full outline outline-1 outline-font rounded p-2"  type="text" name="" placeholder="Name" />
+           <input className=" bg-background w-full outline outline-1 outline-font rounded p-2"  type="text" name="name" placeholder="Name" />
         </div>
         <div className="col-span-1"></div>
-        <Icon className="col-span-1 h-full w-full rotate-6 " icon="icon-park-outline:stamp" color="#ababab" />
-        <input className="col-span-3 bg-background outline outline-1 outline-font rounded p-2" type="text" name="" placeholder="Subject" />
+        <input className="col-span-3 bg-background outline outline-1 outline-font rounded p-2" type="text" name="subject" placeholder="Subject" />
         <div className="col-span-5 pr-1 sm:pr-4 flex items-center justify-between">
           <textarea className="resize-none w-[80%] bg-background outline outline-1 outline-font rounded p-2 " name="message" placeholder="Message"></textarea>
           <button type="submit" className="outline outline-primary w-smallBtn h-smallBtn rounded-full flex items-center justify-center">

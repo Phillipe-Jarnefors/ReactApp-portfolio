@@ -11,24 +11,41 @@ import Home from "./pages/Home"
 import Layout from "./components/Layout"
 import Tournaments, { loader as tournamentLoader } from "./pages/Tournaments"
 import NotFound from "./pages/NotFound"
+import LayoutWS from "./projects/webshop/components/LayoutWS"
+import HomeWS from "./projects/webshop/components/HomeWS"
+import ProductsWS, {
+  loader as productsLoader,
+} from "./projects/webshop/pages/ProductsWS"
+import ProductDetailWS, {
+  loader as productDetailLoader,
+} from "./projects/webshop/pages/ProductDetailWS"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
+
+      <Route path="webshop" element={<LayoutWS />}>
+        <Route index element={<HomeWS />} />
+        <Route
+          path="products"
+          element={<ProductsWS />}
+          loader={productsLoader}
+        />
+        <Route
+          path="products/:id"
+          element={<ProductDetailWS />}
+          loader={productDetailLoader}
+        />
+      </Route>
+
       <Route
         path="live-tournament"
         element={<Tournaments />}
         loader={tournamentLoader}
-      /> 
-      <Route 
-        path="quiz"
-        element={<Tournaments/>}  
       />
-      <Route 
-        path="*" 
-        element={<NotFound />}
-      />
+      <Route path="quiz" element={<Tournaments />} />
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 )
