@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useLayoutEffect } from "react"
+import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { Link as LinkMe } from "react-scroll"
 import { Icon } from "@iconify/react"
@@ -55,7 +55,7 @@ export default function Header() {
         </a>
         <LinkMe to="about" spy={true} smooth={true} offset={-100} duration={0}>
           <h1 className="text-primary text-medium transition hover:translate-y-[-3px] hidden md:block">
-            <a href="#about">about</a>
+            <p>about</p>
           </h1>
         </LinkMe>
         <LinkMe

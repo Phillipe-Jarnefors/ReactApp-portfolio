@@ -1,14 +1,24 @@
 import { Carousel } from "antd"
-import milo from "../../../images/milo.jpg"
+
 import { Button } from "@mui/material"
 import { Link } from "react-router-dom"
 import { useLayoutEffect } from "react"
+
 const contentStyle: React.CSSProperties = {
-  height: "150px",
+  height: "200px",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  fontSize: "2rem",
+  color: "#fefefe",
+  textAlign: "center",
 }
+
+const carouselItems = [
+  "Feel free to look around ...",
+  "... and test the functionality",
+  "MERN Fullstack Webshop.",
+]
 
 export default function SwipeableTextMobileStepper() {
   useLayoutEffect(() => {
@@ -17,18 +27,11 @@ export default function SwipeableTextMobileStepper() {
   return (
     <>
       <Carousel autoplay className="mb-12">
-        <div style={contentStyle}>
-          <img className="" style={contentStyle} src={milo} />
-        </div>
-        <div>
-          <h3 style={contentStyle}>2</h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>3</h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>4</h3>
-        </div>
+        {carouselItems.map((item) => (
+          <div>
+            <h3 style={contentStyle}>{item}</h3>
+          </div>
+        ))}
       </Carousel>
       <p className="text-font text-center">
         This project is a webshop prototype, brimming with true-to-life
@@ -38,7 +41,7 @@ export default function SwipeableTextMobileStepper() {
       <div className="flex items-center justify-center my-10">
         <Link to="./products">
           <Button variant="contained" disableRipple>
-            TO SHOP
+            TO WEBSHOP
           </Button>
         </Link>
       </div>

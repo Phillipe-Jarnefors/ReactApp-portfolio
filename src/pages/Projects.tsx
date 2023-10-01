@@ -20,7 +20,10 @@ export default function Projects() {
           <h2 className="text-3xl text-primary font-semibold mb-2 lg:mb-6">
             Burg!
           </h2>
-          <p className="text-medium text-font">MERN Fullstack, MUI, Tailwind</p>
+          <p className="text-medium text-font text-center px-4">
+            <p>MERN Fullstack,</p>
+            TypeScript, Router v6, Tailwind, AntDesign, Material-UI
+          </p>
           <Link to="webshop">
             <button className="2xl:animate-bounce text-button rounded-md hover:bg-primary hover:text-abstract text-font outline px-5 lg:px-8 py-2 lg:py-5 mt-6 mb-6 md:mt-12">
               Try it!

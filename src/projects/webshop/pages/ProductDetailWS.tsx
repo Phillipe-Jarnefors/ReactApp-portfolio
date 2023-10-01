@@ -4,6 +4,7 @@ import AddCircleIcon from "@mui/icons-material/AddCircle"
 import { Product } from "../../../utils/Interfaces"
 import { useContext } from "react"
 import { CartContext } from "../../../utils/CartContext"
+
 export function loader({ params }) {
   return getSingleProduct(params.id)
 }
@@ -33,8 +34,8 @@ export default function ProductDetailWS() {
         />
       </div>
       <div className="h-48 bg-abstract rounded-b mb-40 relative">
-        <div className="flex items-center justify-end gap-4 bg-secondary p-2">
-          <p className="text-xl  text-background px-2 rounded">
+        <div className="flex items-center justify-end gap-2  p-2">
+          <p className="text-xl  text-primary px-2 rounded">
             {product.price} :-
           </p>
           <button onClick={() => addToCart(product)}>

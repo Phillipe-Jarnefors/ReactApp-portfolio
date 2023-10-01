@@ -14,7 +14,7 @@ interface CartContextValues {
   addToCart: (product: Product) => void
   removeFromCart: (productId: string) => void
   emptyCart: () => void
-  totalPriceCart: () => void
+  totalPriceCart: () => number
 }
 
 export const CartContext = createContext<CartContextValues>({
@@ -22,7 +22,7 @@ export const CartContext = createContext<CartContextValues>({
   addToCart: () => {},
   removeFromCart: () => {},
   emptyCart: () => {},
-  totalPriceCart: () => {},
+  totalPriceCart: () => 0,
 })
 
 export const CartProvider = ({ children }: Props) => {

@@ -22,7 +22,7 @@ export default function HeaderWS() {
   }, [cartLength <= 0])
 
   const cartProductsElement = cart.map((product) => (
-    <ul className="flex flex-col gap-2 items-center mb-4">
+    <ul key={product._id} className="flex flex-col gap-2 items-center mb-4">
       <li className="text-xl">{product.name}</li>
       <div className="flex gap-4 items-center justify-center text-xl">
         <button onClick={() => removeFromCart(product._id)}>
@@ -38,7 +38,6 @@ export default function HeaderWS() {
           <p>{product.quantity}x</p>
           <p>{product.price} :-</p>
         </div>
-        {/* <p className=" text-secondary border-secondary">Remove</p> */}
       </li>
     </ul>
   ))
@@ -47,7 +46,7 @@ export default function HeaderWS() {
     <div className="">
       <div className="border-t-2 border-abstract text-xl flex gap-2 items-center w-full  py-6 mt-8 xl:px-12 z-10 top-12 left-0 bg-background">
         <h1 className="text-primary hover:cursor-pointer mr-auto">
-          <Link to=".">Burg!</Link>
+          <Link to="./products">Burg!</Link>
         </h1>
         <AdminPanelSettingsIcon className="text-primary" />
         {cartLength ? (
