@@ -19,6 +19,8 @@ import ProductsWS, {
 import ProductDetailWS, {
   loader as productDetailLoader,
 } from "./projects/webshop/pages/ProductDetailWS"
+import { CartProvider } from "./utils/CartContext"
+import CheckoutWS from "./projects/webshop/pages/CheckoutWS"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -37,6 +39,7 @@ const router = createBrowserRouter(
           element={<ProductDetailWS />}
           loader={productDetailLoader}
         />
+        <Route path="checkout" element={<CheckoutWS />} />
       </Route>
 
       <Route
@@ -56,6 +59,8 @@ function App() {
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLDivElement).render(
   <React.StrictMode>
-    <App />
+    <CartProvider>
+      <App />
+    </CartProvider>
   </React.StrictMode>
 )

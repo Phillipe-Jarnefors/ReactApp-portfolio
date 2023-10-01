@@ -144,17 +144,6 @@ export default function Header() {
           </ul>
         </section>
       </nav>
-
-      {/* <p>
-        <NavLink className="" to="/live-tournament">
-          Live
-        </NavLink>
-      </p>
-      <p>
-        <NavLink className="" to={""}>
-          Upcoming
-        </NavLink>
-      </p> */}
     </header>
   )
 }

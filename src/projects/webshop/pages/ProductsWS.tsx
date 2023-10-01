@@ -7,14 +7,21 @@ import IcecreamIcon from "@mui/icons-material/Icecream"
 import AddCircleIcon from "@mui/icons-material/AddCircle"
 import LunchDiningIcon from "@mui/icons-material/LunchDining"
 import { BottomNavigation, BottomNavigationAction } from "@mui/material"
-import { useState } from "react"
+import { useContext, useLayoutEffect, useState } from "react"
 import waves from "../../../images/waves.png"
+import { CartContext } from "../../../utils/CartContext"
 
 export function loader() {
   return getProducts()
 }
 
 export default function ProductsWS() {
+  useLayoutEffect(() => {
+    window.scroll(0, 0)
+  })
+  // localStorage.clear()
+  const { addToCart } = useContext(CartContext)
+
   const [value, setValue] = useState("all")
   const [searchParams, setSearchParams] = useSearchParams()
   const categoryFilter = searchParams.get("category")
@@ -26,19 +33,6 @@ export default function ProductsWS() {
   const fallbackImage = (event: React.SyntheticEvent) => {
     if (event.target) {
       ;(event.target as HTMLIFrameElement).src = waves
-    }
-  }
-
-  const addProductToCart = (product: Product) => {
-    const cart = localStorage.getItem("cart")
-    if (!cart) {
-      const cartProduct = {
-        id: product._id,
-        name: product.name,
-        quantity: 1,
-        price: product.price,
-      }
-      localStorage.setItem("cart", JSON.stringify(cartProduct))
     }
   }
 
@@ -58,7 +52,7 @@ export default function ProductsWS() {
       <Link to={product._id} className="relative mb-10">
         <Link to=".">
           <button
-            onClick={() => addProductToCart(product)}
+            onClick={() => addToCart(product)}
             className="absolute right-4 top-4  bg-abstract rounded-full p-1"
           >
             <AddCircleIcon

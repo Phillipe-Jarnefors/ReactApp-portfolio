@@ -6,7 +6,7 @@ export default function LayoutWS() {
     <div className="bg-background min-h-screen flex flex-col justify-between">
       <div className="pt-2 md:px-10 lg:px-32 2xl:px-96">
         <HeaderWS />
-        <main className="pt-36">
+        <main className="">
           <Outlet />
         </main>
       </div>
