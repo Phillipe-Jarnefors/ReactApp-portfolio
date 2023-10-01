@@ -1,5 +1,5 @@
 export async function getProducts() {
-    const res = await fetch("http://localhost:3000/webshop/products/")
+    const res = await fetch("https://portfolio-phillipe.onrender.com/webshop/products")
     if(!res.ok) {
         throw {
             message: "Failed to fetch products."
@@ -9,8 +9,8 @@ export async function getProducts() {
     return data
 }
 
-export async function getSingleProduct(id) {
-    const res = await fetch(`http://localhost:3000/webshop/products/${id}`)
+export async function getSingleProduct(id: string) {
+    const res = await fetch(`https://portfolio-phillipe.onrender.com/webshop/products/${id}`)
     if(!res.ok) {
         throw {
             message: "Failed to fetch products."
