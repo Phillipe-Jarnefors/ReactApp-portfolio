@@ -51,18 +51,18 @@ export default function ProductsWS() {
     <div key={product._id} className="text-font flex flex-col gap-1 rounded">
       <div className="flex justify-between items-center">
         <h4 className="text-xl ">{product.name}</h4>
-        <p className="text-xl text-primary">{product.price} :-</p>
       </div>
       <div className="relative">
         <div>
           <button
             onClick={() => addToCart(product)}
-            className="absolute right-4 top-4  bg-abstract rounded-full p-1"
+            className="absolute right-2 top-4 flex gap-2 bg-abstract rounded-full p-1"
           >
             <AddCircleIcon
               className=""
               sx={{ height: "2rem", width: "2rem" }}
             />
+            <p className="text-xl text-primary">{product.price} :-</p>
           </button>
           {/* <p className="text-xl text-background absolute bottom-0 px-4 rounded bg-primary">
           {product.price} :-

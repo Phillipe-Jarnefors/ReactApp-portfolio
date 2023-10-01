@@ -44,15 +44,17 @@ export default function HeaderWS() {
 
   return (
     <div className="">
-      <div className="border-t-2 border-abstract text-xl flex gap-2 items-center w-full  py-6 mt-8 xl:px-12 z-10 top-12 left-0 bg-background">
+      <div className="border-t-2 border-abstract text-xl flex gap-4 items-center w-full  py-6 mt-8 xl:px-12 z-10 top-12 left-0 bg-background">
         <h1 className="text-primary hover:cursor-pointer mr-auto">
           <Link to="./products">Burg!</Link>
         </h1>
-        <AdminPanelSettingsIcon className="text-primary" />
+        <Link to="admin">
+          <AdminPanelSettingsIcon className="text-primary" />
+        </Link>
         {cartLength ? (
           <Badge badgeContent={cartLength} color="primary">
             <button onClick={() => setDisplayedCart(!displayCart)}>
-              <ShoppingCartIcon className="text-primary" />
+              <ShoppingCartIcon className="text-primary mb-1" />
             </button>
           </Badge>
         ) : (
