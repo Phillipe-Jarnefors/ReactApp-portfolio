@@ -8,11 +8,11 @@ export default function AdminHomeWS() {
       <Link to="./handle-products">
         <div className="w-full relative flex items-center justify-center">
           <img
-            className="object-cover opacity-50 w-full h-48 rounded"
+            className="object-cover opacity-60 w-full h-48 rounded"
             src={editproducts}
             alt=""
           />
-          <h2 className="text-primary text-xl absolute outline p-3 bg-abstract opacity-80 rounded">
+          <h2 className="text-primary text-xl absolute outline p-3 bg-abstract opacity-90 rounded">
             Edit Products
           </h2>
         </div>
@@ -20,11 +20,11 @@ export default function AdminHomeWS() {
       <Link to="./orders">
         <div className="w-full relative flex items-center justify-center">
           <img
-            className="object-cover opacity-50 w-full h-48 rounded"
+            className="object-cover opacity-60 w-full h-48 rounded"
             src={handleorders}
             alt=""
           />
-          <h2 className="text-primary text-xl absolute outline p-3 bg-abstract opacity-80 rounded">
+          <h2 className="text-primary text-xl absolute outline p-3 bg-abstract opacity-90 rounded">
             Handle Orders
           </h2>
         </div>
