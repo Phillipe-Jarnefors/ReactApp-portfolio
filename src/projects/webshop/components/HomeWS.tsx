@@ -2,7 +2,9 @@ import { Carousel } from "antd"
 
 import { Button } from "@mui/material"
 import { Link } from "react-router-dom"
-import { useLayoutEffect } from "react"
+import { useEffect, useLayoutEffect, useState } from "react"
+import LoadingButton from "@mui/lab/LoadingButton"
+import SendIcon from "@mui/icons-material/Send"
 
 const contentStyle: React.CSSProperties = {
   height: "200px",
@@ -24,6 +26,20 @@ export default function SwipeableTextMobileStepper() {
   useLayoutEffect(() => {
     window.scrollTo(0, 0)
   })
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false)
+    }, 100)
+    return () => clearTimeout(timer)
+  }, [])
+
+  const [loading, setLoading] = useState(false)
+
+  const animateLoading = () => {
+    setLoading(true)
+  }
+
   return (
     <>
       <Carousel autoplay className="mb-12">
@@ -39,11 +55,23 @@ export default function SwipeableTextMobileStepper() {
         platform.
       </p>
       <div className="flex items-center justify-center my-10">
-        <Link to="./products">
-          <Button variant="contained" disableRipple>
-            TO WEBSHOP
-          </Button>
-        </Link>
+        {!loading ? (
+          <button onClick={animateLoading}>
+            <Link to="./products">
+              <Button variant="contained" disableRipple>
+                TO WEBSHOP
+              </Button>
+            </Link>
+          </button>
+        ) : (
+          <LoadingButton
+            loading={loading}
+            loadingPosition="end"
+            variant="contained"
+          >
+            <span>Loading</span>
+          </LoadingButton>
+        )}
       </div>
     </>
   )

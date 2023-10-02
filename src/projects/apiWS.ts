@@ -5,6 +5,13 @@ export async function getProducts() {
             message: "Failed to fetch products."
         }
     }
+    if(!res) {
+        console.log("laddar....");
+        throw {
+            message: "Loading...",
+            status: "loading"
+        }  
+    }
     const data = await res.json()
     return data
 }
