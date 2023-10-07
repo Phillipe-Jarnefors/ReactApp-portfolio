@@ -1,5 +1,6 @@
 import { useContext, useState } from "react"
 import { CartContext } from "../../../utils/CartContext"
+import { addNewOrder } from "../../apiWS"
 
 import {
   Box,
@@ -26,18 +27,22 @@ const paymentMethods = [
 export default function CheckoutWS() {
   const { cart, totalPriceCart, emptyCart } = useContext(CartContext)
   const [breadCrumbStepper, setBreadCrumbStepper] = useState(1)
+
   const totalPrice = totalPriceCart()
 
   const [formData, setFormData] = useState({
-    fullName: "",
+    name: "",
     phone: "",
     paymentMethod: "",
   })
 
-  // const submitForm = (event) => {
-  //   event.preventDefault()
-  //   setFormData
-  // }
+  const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    setBreadCrumbStepper(2)
+
+    addNewOrder(formData, cart, totalPrice)
+  }
 
   const handleChange = (e: { target: { name: string; value: string } }) => {
     const { name, value } = e.target
@@ -45,10 +50,11 @@ export default function CheckoutWS() {
       ...prevState,
       [name]: value,
     }))
+    console.log(formData)
   }
 
   const cartProductsElement = cart.map((product) => (
-    <ul className="flex flex-col gap-2 items-center mb-4">
+    <ul key={product._id} className="flex flex-col gap-2 items-center mb-4">
       <li className="text-xl">{product.name}</li>
       <div className="flex gap-4 items-center justify-center text-xl mb-2">
         <img className="h-12 w-12 rounded-full" src={product.image} alt="" />
@@ -72,7 +78,7 @@ export default function CheckoutWS() {
             ))}
           </Stepper>
         </Box>
-        {breadCrumbStepper === 2 ? (
+        {breadCrumbStepper === 2 && cart.length > 0 ? (
           <section>
             <div className="text-center px-4">
               <p className="">Thank you!</p>
@@ -85,17 +91,17 @@ export default function CheckoutWS() {
             <div className="py-4 mb-2 text-medium text-font flex flex-col items-center bg-abstract">
               {formData.paymentMethod === "swish" ? (
                 <div className="text-center">
-                  <p>Swish 070 070 700 00</p>
+                  <p>Swish {formData.phone}</p>
                   <p>Paid {totalPrice} :-</p>
                 </div>
               ) : (
-                <div className="text-cenetr">
+                <div className="text-center">
                   <p>Pay by card at checkout</p>
                   <p>Cost {totalPrice} :-</p>
                 </div>
               )}
 
-              <p>Bill Billson</p>
+              <p>{formData.name}</p>
               <Link to="..">
                 <button
                   onClick={() => {
@@ -113,17 +119,17 @@ export default function CheckoutWS() {
         )}
       </div>
 
-      {breadCrumbStepper === 1 && (
+      {breadCrumbStepper === 1 && cart.length > 0 && (
         <form
-          // onSubmit={submitForm}
+          onSubmit={submitForm}
           className="text-primary flex flex-col px-10 mt-4 gap-2"
         >
           {" "}
           <TextField
             id="standard-basic"
-            name="fullName"
+            name="name"
             required
-            value={formData.fullName}
+            value={formData.name}
             label="Name"
             variant="outlined"
             onChange={handleChange}
@@ -154,12 +160,9 @@ export default function CheckoutWS() {
               </MenuItem>
             ))}
           </TextField>
-          {formData.fullName && formData.phone && formData.paymentMethod ? (
+          {formData.name && formData.phone && formData.paymentMethod ? (
             <button
               type="submit"
-              onClick={() => {
-                setBreadCrumbStepper(2)
-              }}
               className="text-font border-2 font-medium bg-[#757ce8]  border-primary p-2 mb-6 rounded"
             >
               Place Order

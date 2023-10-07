@@ -7,15 +7,19 @@ import { CartContext } from "../../../utils/CartContext"
 import { Icon } from "@iconify/react/dist/iconify.js"
 
 export default function HeaderWS() {
-  const { cart, emptyCart, addToCart, removeFromCart, totalPriceCart } =
-    useContext(CartContext)
-  const [displayCart, setDisplayedCart] = useState(true)
-  const totalPrice = totalPriceCart()
+  const {
+    cart,
+    lengthCart,
+    emptyCart,
+    addToCart,
+    removeFromCart,
+    totalPriceCart,
+  } = useContext(CartContext)
 
-  const cartLength = cart.reduce(
-    (total, product) => total + product.quantity,
-    0
-  )
+  const [displayCart, setDisplayedCart] = useState(true)
+
+  const totalPrice = totalPriceCart()
+  const cartLength = lengthCart()
 
   useEffect(() => {
     setDisplayedCart(false)

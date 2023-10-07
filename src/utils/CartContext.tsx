@@ -11,6 +11,7 @@ interface CartProduct extends Product {
 
 interface CartContextValues {
   cart: CartProduct[]
+  lengthCart: () => number
   addToCart: (product: Product) => void
   removeFromCart: (productId: string) => void
   emptyCart: () => void
@@ -19,6 +20,7 @@ interface CartContextValues {
 
 export const CartContext = createContext<CartContextValues>({
   cart: [],
+  lengthCart: () => 0,
   addToCart: () => {},
   removeFromCart: () => {},
   emptyCart: () => {},
@@ -32,6 +34,10 @@ export const CartProvider = ({ children }: Props) => {
     const savedCart = JSON.parse(localStorage.getItem("cart") || "[]")
     setCart(savedCart)
   }, [])
+
+  const lengthCart = () => {
+    return cart.reduce((total, product) => total + product.quantity, 0)
+  }
 
   const addToCart = (product: Product) => {
     const findProduct = cart.find(
@@ -71,6 +77,7 @@ export const CartProvider = ({ children }: Props) => {
 
   const emptyCart = () => {
     setCart([])
+    localStorage.removeItem("cart")
   }
 
   const totalPriceCart = () => {
@@ -82,7 +89,14 @@ export const CartProvider = ({ children }: Props) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, emptyCart, totalPriceCart }}
+      value={{
+        cart,
+        lengthCart,
+        addToCart,
+        removeFromCart,
+        emptyCart,
+        totalPriceCart,
+      }}
     >
       {children}
     </CartContext.Provider>

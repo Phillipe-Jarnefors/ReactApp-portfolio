@@ -1,6 +1,4 @@
-import React from "react"
 import { Outlet } from "react-router-dom"
-import AdminHomeWS from "../pages/admin/AdminHomeWS"
 
 export default function LayoutAdminWS() {
   return (
