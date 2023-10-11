@@ -23,7 +23,9 @@ import { CartProvider } from "./utils/CartContext"
 import CheckoutWS from "./projects/webshop/pages/CheckoutWS"
 import AdminHomeWS from "./projects/webshop/pages/admin/AdminHomeWS"
 import AdminOrdersWS from "./projects/webshop/pages/admin/AdminOrdersWS"
-import AdminProductsWS from "./projects/webshop/pages/admin/AdminProductsWS"
+import AdminProductsWS, {
+  loader as adminLoader,
+} from "./projects/webshop/pages/admin/AdminProductsWS"
 import LayoutAdminWS from "./projects/webshop/components/LayoutAdminWS"
 
 const router = createBrowserRouter(
@@ -47,7 +49,11 @@ const router = createBrowserRouter(
         <Route path="admin" element={<LayoutAdminWS />}>
           <Route index element={<AdminHomeWS />} />
           <Route path="orders" element={<AdminOrdersWS />} />
-          <Route path="handle-products" element={<AdminProductsWS />} />
+          <Route
+            path="handle-products"
+            element={<AdminProductsWS />}
+            loader={adminLoader}
+          />
         </Route>
       </Route>
 

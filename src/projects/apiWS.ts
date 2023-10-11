@@ -65,3 +65,39 @@ export async function addNewOrder(formData, cart, totalPrice) {
     console.error(error)
   }
 }
+
+export async function addNewProduct(formData) {
+  try {
+    const settings = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: formData.productName,
+        category: formData.category,
+        brand: formData.category,
+        price: formData.price,
+        image: formData.imageURL,
+        shortDesc: formData.description,
+        description: formData.description,
+        quantity: 1,
+        isAvailable: true,
+        isDeleted: false,
+      }),
+    }
+
+    console.log(settings.body)
+
+    const res = await fetch(
+      "https://portfolio-phillipe.onrender.com/webshop/products/add",
+      settings
+    )
+    const data = await res.json()
+    console.log(data)
+
+    return data
+  } catch (error) {
+    console.error(error)
+  }
+}

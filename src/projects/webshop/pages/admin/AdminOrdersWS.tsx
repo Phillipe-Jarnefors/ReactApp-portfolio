@@ -7,7 +7,7 @@ export default function AdminOrdersWS() {
       <Link to="..">
         <p className="text-medium text-primary">.. Go back</p>
       </Link>
-      <h1>yibawdawd</h1>
+      <h1>This feature is coming soon!</h1>
     </div>
   )
 }
