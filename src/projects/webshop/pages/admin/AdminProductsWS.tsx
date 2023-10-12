@@ -1,17 +1,26 @@
 import { Icon } from "@iconify/react/dist/iconify.js"
 import { MenuItem, TextField } from "@mui/material"
 import { useState } from "react"
-import { AddProduct } from "../../../../utils/Interfaces"
 import { Link, useLoaderData } from "react-router-dom"
-import { addNewProduct, getProducts } from "../../../apiWS"
+import { addNewProduct, getProducts, updateProduct } from "../../../apiWS"
 import { Product } from "../../../../utils/Interfaces"
+import AddCircleIcon from "@mui/icons-material/AddCircle"
 
 export function loader() {
   return getProducts()
 }
 
 export default function AdminProductsWS() {
+  const allProducts = useLoaderData() as Product[]
+  const availableProducts = allProducts.filter(
+    (product) => product.isAvailable !== false && product.isDeleted !== true
+  )
+
+  const [data, setData] = useState(allProducts)
+  const [currentProductId, setCurrentProductId] = useState("")
   const [toggleAdd, setToggleAdd] = useState(false)
+
+  // console.log(currentProductId)
 
   const [formData, setFormData] = useState({
     id: "",
@@ -26,15 +35,15 @@ export default function AdminProductsWS() {
   const categories = [
     {
       value: "hamburger",
-      label: "Hamburger",
+      label: "hamburger",
     },
     {
       value: "drink",
-      label: "Drink",
+      label: "drink",
     },
     {
       value: "dessert",
-      label: "Dessert",
+      label: "dessert",
     },
   ]
 
@@ -43,18 +52,17 @@ export default function AdminProductsWS() {
     addNewProduct(formData)
   }
 
-  const submitEditForm = (e: React.FormEvent<HTMLFormElement>, id: string) => {
+  const submitEditForm = (
+    e: React.FormEvent<HTMLFormElement>,
+    productId: string
+  ) => {
     e.preventDefault()
-    setFormData({
-      id: "",
-      productName: "",
-      description: "",
-      category: "",
-      price: "",
-      imageURL: "",
-      isAvailable: true,
-    })
-    console.log("id ", id)
+
+    const selectedProduct = data.find((product) => product._id === productId)
+
+    if (selectedProduct) {
+      updateProduct(selectedProduct)
+    }
   }
 
   const handleChange = (e: { target: { name: string; value: string } }) => {
@@ -66,12 +74,23 @@ export default function AdminProductsWS() {
     console.log(formData)
   }
 
-  const allProducts = useLoaderData() as Product[]
-  const availableProducts = allProducts.filter(
-    (product) => product.isAvailable !== false && product.isDeleted !== true
-  )
+  const handleEditChange = (
+    e: { target: { name: string; value: string } },
+    productId: string
+  ) => {
+    const { name, value } = e.target
+    setData((prevData) => {
+      return prevData.map((product) => {
+        if (product._id === productId) {
+          return { ...product, [name]: value }
+        }
+        return product
+      })
+    })
+    setCurrentProductId(productId)
+  }
 
-  const availableProductsElements = availableProducts.map((product) => (
+  const availableProductsElements = data.map((product) => (
     <div key={product._id} className="bg-[#fefefe] grid gap-6 grid-cols-4 py-6">
       <div className="col-span-1 border-dashed border-2 border-abstract rounded mx-6 h-20 w-full">
         <img className="h-full w-full" src={product.image} alt="" />
@@ -83,23 +102,23 @@ export default function AdminProductsWS() {
       >
         <TextField
           id="standard-basic"
-          name="productName"
+          name="name"
           required
-          value={formData.productName}
+          value={product.name}
           label={product.name}
           variant="outlined"
           type="text"
-          onChange={handleChange}
+          onChange={(e) => handleEditChange(e, product._id)}
         />
         <TextField
           id="standard-basic"
           name="description"
           required
-          value={formData.description}
+          value={product.description}
           label={product.shortDesc}
           variant="outlined"
           type="text"
-          onChange={handleChange}
+          onChange={(e) => handleEditChange(e, product._id)}
         />
         <TextField
           id="standard-basic"
@@ -110,7 +129,7 @@ export default function AdminProductsWS() {
           label={product.category}
           variant="outlined"
           type="text"
-          onChange={handleChange}
+          onChange={(e) => handleEditChange(e, product._id)}
         >
           {categories.map((option) => (
             <MenuItem key={option.value} value={option.value}>
@@ -119,38 +138,22 @@ export default function AdminProductsWS() {
           ))}
         </TextField>
 
-        {/* <TextField
-            id="outlined-select-currency"
-            select
-            label="Select"
-            required
-            name="paymentMethod"
-            value={formData.paymentMethod}
-            onChange={handleChange}
-          >
-            {paymentMethods.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField> */}
-
         <TextField
           id="outlined-select-currency"
           name="price"
           required
-          value={formData.price}
+          value={product.price}
           label={product.price}
           type="number"
-          onChange={handleChange}
+          onChange={(e) => handleEditChange(e, product._id)}
         />
         <TextField
           id="outlined-select-currency"
           label={product.image}
           required
           name="imageURL"
-          value={formData.imageURL}
-          onChange={handleChange}
+          value={product.image}
+          onChange={(e) => handleEditChange(e, product._id)}
         />
         <button
           type="submit"
@@ -178,18 +181,20 @@ export default function AdminProductsWS() {
         <h2 className="text-xl text-primary">Handle Products</h2>
         <div></div>
       </div>
-      <div className="flex justify-between items-center py-6 text-medium text-primary font-bold">
-        <h3>Hamburger</h3>
-        <h3>Drink</h3>
-        <h3>Dessert</h3>
-      </div>
-      <article className="bg-[#fefefe] text-background grid gap-6 grid-cols-4 rounded-lg mb-10 border-4 border-abstract">
-        <h3
-          onClick={() => setToggleAdd(!toggleAdd)}
-          className="text-center col-span-4 my-3 font-bold"
-        >
-          Add new product +
-        </h3>
+
+      <article className="bg-[#fefefe] text-background grid gap-6 my-6 grid-cols-4 rounded-lg mb-10 border-4 border-abstract">
+        <div className="flex items-center justify-center col-span-4 gap-2">
+          <h3
+            onClick={() => setToggleAdd(!toggleAdd)}
+            className="text-center col-span-4 my-3 font-bold"
+          >
+            Add new product
+          </h3>
+          <AddCircleIcon
+            className=" rounded-full"
+            sx={{ height: "100%", width: "2rem", color: "#" }}
+          />
+        </div>
         {toggleAdd && (
           <>
             {" "}

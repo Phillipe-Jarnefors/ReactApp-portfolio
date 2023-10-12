@@ -81,7 +81,7 @@ export default function SwipeableTextMobileStepper() {
         ) : (
           <>
             <p className="text-font font-medium">Loading App ...</p>
-            <p className="text-font">average wait time 5-10 sec</p>
+            <p className="text-font">average wait time 5-20 sec</p>
           </>
         )}
       </div>

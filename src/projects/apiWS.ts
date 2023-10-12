@@ -1,3 +1,5 @@
+import { AddProduct, Product } from "../utils/Interfaces"
+
 export async function getProducts() {
   const res = await fetch(
     "https://portfolio-phillipe.onrender.com/webshop/products"
@@ -66,7 +68,7 @@ export async function addNewOrder(formData, cart, totalPrice) {
   }
 }
 
-export async function addNewProduct(formData) {
+export async function addNewProduct(formData: AddProduct) {
   try {
     const settings = {
       method: "POST",
@@ -95,6 +97,28 @@ export async function addNewProduct(formData) {
     )
     const data = await res.json()
     console.log(data)
+
+    return data
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export async function updateProduct(product: Product) {
+  const settings = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ ...product }),
+  }
+  try {
+    const res = await fetch(
+      `https://portfolio-phillipe.onrender.com/webshop/products/update/${product._id}`,
+      settings
+    )
+    const data = await res.json()
+    console.log(data.message)
 
     return data
   } catch (error) {
