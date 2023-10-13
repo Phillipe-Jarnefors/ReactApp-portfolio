@@ -87,7 +87,7 @@ export default function ProductsWS() {
     </div>
   ))
   return (
-    <div className="mb-40">
+    <div className="mb-40 mt-4">
       <div className="mb-6">
         <BottomNavigation
           sx={{ bgcolor: "#001829" }}

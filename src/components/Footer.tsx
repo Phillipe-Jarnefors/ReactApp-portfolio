@@ -3,7 +3,7 @@ import waves from "../images/waves.svg"
 
 export default function Footer() {
   return (
-    <footer id="footer" className="relative mt-20 w-[100%]">
+    <footer id="footer" className="relative  w-[100%]">
       {/* <div className=" outline outline-5 outline-font rounded-lg absolute right-0 left-0 bottom-24 sm:bottom-40 md:bottom-60 lg:bottom-80 mt-6 mx-6 sm:mx-20 md:mx-30 lg:mx-60 xl:mx-96">
       <form className="grid grid-cols-5 gap-3 px-3 sm:p-8 md:p-12 pb-8 pt-3 text-font">
         <h5 className="col-span-4 text-xl">Reach out to me!</h5>

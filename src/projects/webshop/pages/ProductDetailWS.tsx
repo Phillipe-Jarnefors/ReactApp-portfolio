@@ -4,6 +4,7 @@ import AddCircleIcon from "@mui/icons-material/AddCircle"
 import { Product } from "../../../utils/Interfaces"
 import { useContext } from "react"
 import { CartContext } from "../../../utils/CartContext"
+import { Icon } from "@iconify/react/dist/iconify.js"
 
 export function loader({ params }) {
   return getSingleProduct(params.id)
@@ -13,12 +14,13 @@ export default function ProductDetailWS() {
   const product = useLoaderData() as Product
   const { addToCart } = useContext(CartContext)
   return (
-    <div className="mt-10 ">
-      <Link
-        className="text-primary border-b-2  border-primary"
-        to="../products"
-      >
-        Go back
+    <div className="mt-9">
+      <Link to="../products" className="">
+        <Icon
+          icon="pajamas:go-back"
+          color="#61dbfb"
+          className="w-icon h-icon"
+        />
       </Link>
 
       <div
@@ -45,7 +47,6 @@ export default function ProductDetailWS() {
             />
           </button>
         </div>
-        <p className="mt-4 text-center text-font">{product.shortDesc}</p>
         <p className="mt-4 text-center text-font">{product.description}</p>
       </div>
     </div>

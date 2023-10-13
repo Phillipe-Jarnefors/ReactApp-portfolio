@@ -161,9 +161,9 @@ export default function AdminProductsWS() {
         >
           Save
         </button>
-        <button className="text-font border-2 font-medium bg-secondary  border-primary p-2 mb-6 rounded">
+        {/* <button className="text-font border-2 font-medium bg-secondary  border-primary p-2 mb-6 rounded">
           Delete
-        </button>
+        </button> */}
       </form>
     </div>
   ))
