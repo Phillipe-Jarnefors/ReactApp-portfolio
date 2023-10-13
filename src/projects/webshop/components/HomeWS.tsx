@@ -77,6 +77,9 @@ export default function SwipeableTextMobileStepper() {
                 TO WEBSHOP
               </button>
             </Link>
+            <p className="text-secondary font-bold">
+              Recommended screen: mobile
+            </p>
           </>
         ) : (
           <>
